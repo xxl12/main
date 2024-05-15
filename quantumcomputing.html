@@ -6,21 +6,23 @@
     <title>Quantum Computing Research (Xiantao Li's Group, Math Department)</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        body {
+           body {
             font-family: 'Roboto', sans-serif;
-            color: #333;
-            background-image: url('qcompbk2.jpg'); /* Update this with the actual path to the new image */
+            color: #ffffff; /* General text color */
+            background-image: url('qcompbk2.jpg'); /* Ensure this is the path to your subdued background image */
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center center;
-            background-attachment: fixed; /* Makes the background fixed during scrolling */
+            background-attachment: fixed; /* Keeps the background fixed during scrolling */
         }
         header, footer, section {
             padding: 20px;
+            margin-top: 20px;
+            background-color: rgba(0, 0, 50, 0.8); /* Slight dark background for all sections */
+            border-radius: 10px;
         }
-       h1, h2, h3 {
-            color: #ccddff; /* Lighter shade of blue for headers to ensure visibility */
-            background-color: rgba(0, 0, 50, 0.8);
+        h1, h2, h3 {
+            color: #ccddff; /* Lighter shade of blue for headers */
         }
         p, li {
             color: #e6e6ff; /* Light greyish-blue color for paragraph text */
@@ -43,23 +45,17 @@
         .navigation a:hover {
             background-color: #003366;
         }
-        .research-columns {
+        .columns {
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
         }
-        .research-columns div {
+        .columns div {
             flex: 1;
             min-width: 300px;
             padding: 10px;
             border: 1px solid #ddd;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        #publications, #team {
-            margin-top: 20px;
-            padding: 20px;
-            background-color: rgba(0, 0, 50, 0.8); /* Slight dark background to enhance readability */
-            border-radius: 10px;
         }
         footer {
             text-align: center;
