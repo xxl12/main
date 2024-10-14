@@ -63,6 +63,28 @@
             color: #fff;
             background-color: #333;
         }
+        /* Set font color to white */
+.publications-list {
+    color: white;
+    list-style-type: none; /* Optional: removes bullet points */
+    padding-left: 0; /* Optional: removes default padding */
+}
+
+/* Style for links (a) in the list */
+.publications-list a {
+    color: white;
+    text-decoration: none; /* Optional: removes underline from links */
+}
+
+/* Change link color when clicked (visited) */
+.publications-list a:visited {
+    color: darkgreen;
+}
+
+/* Increase vertical spacing between list items */
+.publications-list li {
+    margin-bottom: 20px; /* Adjust this value as needed for spacing */
+}
     </style>
 </head>
 <body>
@@ -114,7 +136,9 @@
                 </dvi>
                     <p>We create quantum algorithms specifically designed to solve partial differential equations, particularly in situations where the numerical discretization results in a high degree of freedom.</p>
                 <h3>Quantum Sampling</h3>
-                <p>Markov chains play a central role in modern data science algorithms. We construct algorithms that mix a Markov chain with quantum speedup.</p>
+                <p>Quantum algorithms speed up Markov Chain Monte Carlo by leveraging quantum walks to reduce mixing time, 
+                    using quantum amplitude amplification to improve sampling efficiency, and exploiting quantum search techniques to accelerate convergence.
+                    </p>
                 <h3>Quantum Machine Learning</h3>
                 <div style="text-align: center;">
                 <img src="variational-quantum-optimization.jpg" style="width: 400px; height: 200px;" alt="Accelerating quantum neural networks">
@@ -134,28 +158,7 @@
         
     </section>
 
-/* Set font color to white */
-.publications-list {
-    color: white;
-    list-style-type: none; /* Optional: removes bullet points */
-    padding-left: 0; /* Optional: removes default padding */
-}
 
-/* Style for links (a) in the list */
-.publications-list a {
-    color: white;
-    text-decoration: none; /* Optional: removes underline from links */
-}
-
-/* Change link color when clicked (visited) */
-.publications-list a:visited {
-    color: darkgreen;
-}
-
-/* Increase vertical spacing between list items */
-.publications-list li {
-    margin-bottom: 20px; /* Adjust this value as needed for spacing */
-}
 
             
     <section id="publications">
