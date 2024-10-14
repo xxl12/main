@@ -133,9 +133,34 @@
         </div> 
         
     </section>
+
+/* Set font color to white */
+.publications-list {
+    color: white;
+    list-style-type: none; /* Optional: removes bullet points */
+    padding-left: 0; /* Optional: removes default padding */
+}
+
+/* Style for links (a) in the list */
+.publications-list a {
+    color: white;
+    text-decoration: none; /* Optional: removes underline from links */
+}
+
+/* Change link color when clicked (visited) */
+.publications-list a:visited {
+    color: darkgreen;
+}
+
+/* Increase vertical spacing between list items */
+.publications-list li {
+    margin-bottom: 20px; /* Adjust this value as needed for spacing */
+}
+
+            
     <section id="publications">
         <h2>Publications</h2>
-        <ol reversed>
+        <ol reversed class="publications-list">
             <li><strong>Hsuan-Cheng Wu, Jiayao Wang and  Xiantao Li, <a href="http://arxiv.org/abs/2405.12714">Quantum Algorithms for Nonlinear Dynamics: Revisiting Carleman
   Linearization with No Dissipative Conditions,</a>
   </strong></font> <em> preprint, 2024. </em></li>  
