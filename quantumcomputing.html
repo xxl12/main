@@ -4,167 +4,263 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quantum Computing Research (Xiantao Li's Group, Math Department)</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            line-height: 1.8;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
-            color: #333;
+        :root {
+            --bg-primary: #f0f4f8;
+            --text-primary: #1a365d;
+            --accent-color: #3182ce;
+            --card-bg: rgba(255, 255, 255, 0.9);
+        }
+
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, #e6f2ff 100%);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
             padding: 0 20px;
         }
 
-        header, footer, section {
-            padding: 40px;
-            margin: 20px 0;
-            background-color: white;
-            border-radius: 15px;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        h1, h2, h3 {
-            color: #1a365d;
-            margin-bottom: 1rem;
-        }
-
-        h1 {
-            font-size: 2.2em;
-            text-align: center;
-            padding: 20px 0;
-        }
-
-        h2 {
-            font-size: 1.8em;
-            border-bottom: 2px solid #e2e8f0;
-            padding-bottom: 10px;
-            margin-top: 2rem;
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
         }
 
         .navigation {
-            background-color: #1a365d;
-            padding: 15px 0;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             position: sticky;
             top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .navigation .container {
+            z-index: 100;
             display: flex;
             justify-content: center;
             gap: 20px;
+            padding: 15px 0;
+            border-radius: 0 0 10px 10px;
         }
 
         .navigation a {
-            color: white;
-            padding: 10px 20px;
+            color: var(--accent-color);
             text-decoration: none;
-            font-weight: 500;
-            border-radius: 5px;
-            transition: background-color 0.3s;
+            font-weight: 600;
+            transition: color 0.3s ease;
         }
 
         .navigation a:hover {
-            background-color: #2c5282;
+            color: #2c5282;
+        }
+
+        header, section {
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        h1, h2, h3 {
+            color: var(--accent-color);
+            margin-bottom: 15px;
         }
 
         .columns {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-            margin: 20px 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
         }
 
         .columns > div {
-            background: white;
-            padding: 25px;
+            flex: 1;
+            min-width: 300px;
+            background-color: rgba(255, 255, 255, 0.8);
             border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            padding: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .columns > div:hover {
+            transform: scale(1.02);
+        }
+
+        .publications-list {
+            list-style-type: decimal;
+            padding-left: 20px;
+        }
+
+        .publications-list li {
+            background-color: rgba(49, 130, 206, 0.05);
+            border-left: 4px solid var(--accent-color);
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+
+        .publications-list a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .publications-list a:visited {
+            color: #4a5568;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .member-info {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .member-info:hover {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 10px;
         }
 
         img {
             max-width: 100%;
             height: auto;
-            border-radius: 8px;
-            margin: 15px 0;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .publications-list {
-            color: #333;
-            padding-left: 20px;
-        }
-
-        .publications-list li {
-            margin-bottom: 25px;
-            line-height: 1.6;
-        }
-
-        .publications-list a {
-            color: #2c5282;
-            text-decoration: none;
-        }
-
-        .publications-list a:hover {
-            text-decoration: underline;
-        }
-
-        .member-info {
-            background: white;
-            padding: 20px;
             border-radius: 10px;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
-        footer {
-            text-align: center;
-            background-color: #1a365d;
-            color: white;
-            padding: 20px;
-            margin-top: 40px;
-        }
-
-        .research-image {
-            text-align: center;
-            margin: 20px 0;
-        }
-
-        .research-image img {
-            max-width: 400px;
-            width: 100%;
-        }
-
-        /* Funding section styling */
-        #funding h3 {
-            color: #2c5282;
-            font-size: 1.1em;
-            margin: 15px 0;
-            padding: 15px;
-            background: #f8fafc;
-            border-radius: 8px;
+        .funding-support h3 {
+            margin-bottom: 10px;
+            font-weight: 500;
         }
     </style>
 </head>
 <body>
     <div class="navigation">
-        <div class="container">
-            <a href="#about">About Us</a>
-            <a href="#research">Research</a>
-            <a href="#publications">Publications</a>
-            <a href="#team">Team</a>
-        </div>
+        <a href="#about">About Us</a>
+        <a href="#research">Research</a>
+        <a href="#funding">Funding</a>
+        <a href="#publications">Publications</a>
+        <a href="#team">Team</a>
     </div>
 
     <div class="container">
-        <!-- Rest of your HTML content remains the same, just remove the background-image property -->
-        <!-- Your existing content goes here -->
+        <header>
+            <h1>Quantum Computing Research</h1>
+            <p>Xiantao Li's Group, Department of Mathematics, Penn State University</p>
+        </header>
+
+        <section id="about">
+            <h2>About Us</h2>
+            <p>Quantum computing harnesses many unique properties of quantum mechanics, such as quantum entanglement and superposition, offering distinct capabilities that exceed those of conventional computing apparatus. Our overarching objective is to devise efficient quantum algorithms tailored to address scientific computational issues, particularly those that present formidable challenges to classical computers.</p>
+        </section>
+
+        <section id="research">
+            <h2>Our Research</h2>
+            <div class="columns">
+                <div>
+                    <h3>Hamiltonian Simulations</h3>
+                    <img src="Schrodinger-multiscale-quantum.jpg" alt="Solving multiscale Schrôdinger equation using quantum algorithms">
+                    <p>Hamiltonian simulation algorithms involve constructing a quantum circuit that performs the unitary transformation U associated with a Hamiltonian operator H. They are important building blocks for many other quantum computing algorithms.</p>
+
+                    <h3>Open Quantum Systems</h3>
+                    <img src="Open-Quantum-Circuit.jpg" alt="Embedding an open quantum system into unitary dynamics">
+                    <p>In practice, quantum systems are inevitably subject to environmental noise. We design both quantum and classical algorithms to effectively simulate the behavior of these open quantum systems.</p>
+                </div>
+                <div>
+                    <h3>Applications to Material Science</h3>
+                    <img src="dft-diag3.jpg" alt="Flowchart for solving DFT models using quantum algorithms">
+                    <p>First-principle calculations in material science eliminate the need for empirical assumptions and possess the potential to predict material properties with quantum-level precision.</p>
+
+                    <h3>Quantum Algorithms for PDEs</h3>
+                    <img src="Absorbing-BC-schrodingerisation.jpg" alt="Quantum simulation for partial differential equations">
+                    <p>We create quantum algorithms specifically designed to solve partial differential equations, particularly in situations where the numerical discretization results in a high degree of freedom.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="funding" class="funding-support">
+            <h2>Funding Support</h2>
+            <h3>NSF: "Optimal Control of Open Quantum Systems", $395,291, 2021--2025</h3>
+            <h3>ICDS: "Machine-Learning with Quantum Speedup", $30,000, 2023</h3>
+            <h3>NSF: "An Integrated Framework for Optimal Control for Open Quantum Systems", $600,000, 2023--2026</h3>
+            <h3>NSF: "Improving quantum speedup for solving differential equations", $300,000, 2024--2027</h3>
+        </section>
+
+        <section id="publications">
+            <h2>Publications</h2>
+            <ol reversed class="publications-list">
+                <!-- Original publications list from previous HTML -->
+                <li>
+                    <strong>Ke Wang and Xiantao Li</strong>, <a href="https://arxiv.org/abs/2501.05019">Non-Markovian Noise Mitigation: Practical Implementation, Error Analysis, and the Role of Environment Spectral Properties</a>, <em>preprint, 2025</em>
+                </li>
+                <li>
+                    <strong>Zhenning Liu, Xiantao Li, et al.</strong>, <a href="https://arxiv.org/abs/2411.03972">Toward end-to-end quantum simulation for protein dynamics</a>, <em>preprint, 2024</em>
+                </li>
+                <!-- Remaining publications from the original list -->
+                <li>
+                    <strong>Hsuan-Cheng Wu and Xiantao Li</strong>, <a href="https://arxiv.org/abs/2411.03599">Structure-preserving quantum algorithms for linear and nonlinear Hamiltonian systems</a>, <em>preprint, 2024</em>
+                </li>
+                <!-- Continue with the rest of the publications -->
+            </ol>
+        </section>
+
+        <section id="team">
+            <h2>Our Team</h2>
+            <div class="team-grid">
+                <div class="member-info">
+                    <h3>Xiantao Li</h3>
+                    <p>Professor, Penn State</p>
+                </div>
+                <div class="member-info">
+                    <h3>Hsuan-Cheng Wu</h3>
+                    <p>Graduate Student</p>
+                </div>
+                <div class="member-info">
+                    <h3>Taehee Ko</h3>
+                    <p>Graduate Student</p>
+                </div>
+                <div class="member-info">
+                    <h3>Ke Wang</h3>
+                    <p>Graduate Student</p>
+                </div>
+                <div class="member-info">
+                    <h3>Pegah Mohammadipour</h3>
+                    <p>Graduate Student</p>
+                </div>
+                <div class="member-info">
+                    <h3>Ryan Cohen</h3>
+                    <p>Undergraduate Student</p>
+                </div>
+                <div class="member-info">
+                    <h3>George Klimov</h3>
+                    <p>Undergraduate Student</p>
+                </div>
+                <div class="member-info">
+                    <h3>Loc Phan</h3>
+                    <p>Undergraduate Student</p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>Contact: Xiantao.Li AT PSU DOT EDU</p>
+        </footer>
     </div>
 </body>
 </html>
