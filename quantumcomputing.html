@@ -129,33 +129,27 @@
             color: #4a5568;
         }
 
-        /* Publications */
+        /* Publications CSS - FIXED */
         .publications-list {
-            list-style-type: none;
-            counter-reset: pub-counter;
+            list-style-type: decimal; /* RESTORED NUMBERS */
+            padding-left: 0;
         }
 
         .publications-list li {
-            position: relative;
+            list-style-position: inside; /* Keeps number inside the white box */
             background-color: #ffffff;
             border-left: 4px solid var(--accent-color);
-            padding: 15px 15px 15px 25px;
+            padding: 15px 15px 15px 20px;
             margin-bottom: 15px;
             border-radius: 0 5px 5px 0;
             box-shadow: 0 2px 4px rgba(0,0,0,0.02);
         }
 
-        /* Numbering */
-        /* If you want numbers, uncomment the content line below. 
-           If you prefer clean blocks without numbers, keep it commented. */
-        .publications-list li::before {
-            counter-increment: pub-counter;
-            /* content: counter(pub-counter) "."; */ 
-            position: absolute;
-            left: 5px;
-            top: 15px;
-            font-weight: bold;
+        /* Styles the numbers themselves (29, 28...) */
+        .publications-list li::marker {
             color: var(--accent-color);
+            font-weight: bold;
+            font-size: 1.1em;
         }
 
         .publications-list a {
