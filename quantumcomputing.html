@@ -1,19 +1,17 @@
-  <meta name="keywords" content="Xiantao Li, Mathematics of Quantum Computing, Quantum Computing,Quantum Algorithms, Quantum computing for Scientific Computing, Quantum Computers, Quantum Speedup, Open Quantum System, Reduced-order modeling, Quantum Machine Learning">
- 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>Quantum Computing Research (Xiantao Li's Group, Math Department)</title>
+    <meta name="keywords" content="Xiantao Li, Mathematics of Quantum Computing, Quantum Computing, Quantum Algorithms, Quantum computing for Scientific Computing, Quantum Computers, Quantum Speedup, Open Quantum System, Reduced-order modeling, Quantum Machine Learning, Quantum Error Mitigation">
+    <title>Quantum Computing Research (Xiantao Li's Group, Math Department)</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-primary: #f0f4f8;
             --text-primary: #1a365d;
             --accent-color: #3182ce;
-            --card-bg: rgba(255, 255, 255, 0.9);
+            --card-bg: rgba(255, 255, 255, 0.95);
         }
 
         * {
@@ -37,84 +35,137 @@
             padding: 20px;
         }
 
+        /* Navigation */
         .navigation {
-            background-color: rgba(255, 255, 255, 0.9);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
             position: sticky;
             top: 0;
             z-index: 100;
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 30px;
             padding: 15px 0;
             border-radius: 0 0 10px 10px;
+            margin-bottom: 30px;
         }
 
         .navigation a {
             color: var(--accent-color);
             text-decoration: none;
             font-weight: 600;
-            transition: color 0.3s ease;
+            transition: all 0.2s ease;
+            font-size: 0.95rem;
         }
 
         .navigation a:hover {
             color: #2c5282;
+            transform: translateY(-1px);
         }
 
         header, section {
             background-color: var(--card-bg);
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+            padding: 40px;
             margin-bottom: 30px;
+            border: 1px solid rgba(255,255,255,0.5);
         }
 
-        h1, h2, h3 {
+        h1 {
             color: var(--accent-color);
-            margin-bottom: 15px;
+            margin-bottom: 10px;
+            font-size: 2.2rem;
         }
 
+        h2 {
+            color: #2c5282;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            color: var(--accent-color);
+            margin-bottom: 12px;
+            font-size: 1.25rem;
+        }
+
+        /* Research Grid Layout */
         .columns {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
         }
 
-        .columns > div {
-            flex: 1;
-            min-width: 300px;
-            background-color: rgba(255, 255, 255, 0.8);
+        .research-card {
+            background-color: #ffffff;
             border-radius: 10px;
-            padding: 20px;
-            transition: transform 0.3s ease;
+            padding: 25px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+            border: 1px solid #edf2f7;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
         }
 
-        .columns > div:hover {
-            transform: scale(1.02);
+        .research-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(49, 130, 206, 0.1);
         }
 
+        .research-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover; /* Ensures images are uniform size */
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .research-card p {
+            font-size: 0.95rem;
+            color: #4a5568;
+        }
+
+        /* Publications */
         .publications-list {
-            list-style-type: decimal;
-            padding-left: 20px;
+            list-style-type: none; /* Removing default numbers to style manually or rely on CSS counter */
+            counter-reset: pub-counter;
         }
 
         .publications-list li {
-            background-color: rgba(49, 130, 206, 0.05);
+            position: relative;
+            background-color: #ffffff;
             border-left: 4px solid var(--accent-color);
-            padding: 15px;
+            padding: 15px 15px 15px 25px;
             margin-bottom: 15px;
-            border-radius: 5px;
+            border-radius: 0 5px 5px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .publications-list li::before {
+            counter-increment: pub-counter;
+            /* content: counter(pub-counter) "."; */ /* Optional: if you want numbers back */
+            position: absolute;
+            left: 5px;
+            top: 15px;
+            font-weight: bold;
+            color: var(--accent-color);
         }
 
         .publications-list a {
             color: var(--accent-color);
             text-decoration: none;
+            font-weight: 600;
         }
 
-        .publications-list a:visited {
-            color: #4a5568;
+        .publications-list a:hover {
+            text-decoration: underline;
         }
 
+        /* Team Grid */
         .team-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -122,38 +173,53 @@
         }
 
         .member-info {
-            background-color: rgba(255, 255, 255, 0.8);
+            background-color: #ffffff;
             border-radius: 10px;
             padding: 20px;
             text-align: center;
+            border: 1px solid #edf2f7;
             transition: box-shadow 0.3s ease;
         }
 
         .member-info:hover {
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-color: var(--accent-color);
         }
 
+        .member-info h3 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .member-info p {
+            color: #718096;
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
         footer {
             text-align: center;
-            padding: 20px;
-            background-color: rgba(255, 255, 255, 0.7);
+            padding: 30px;
+            background-color: #ffffff;
             border-radius: 10px;
+            margin-top: 40px;
+            color: #718096;
+            font-size: 0.9rem;
         }
 
-        img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-            margin-bottom: 15px;
-        }
-
+        /* Funding list spacing */
         .funding-support h3 {
-            margin-bottom: 10px;
-            font-weight: 500;
+            font-size: 1rem;
+            margin-bottom: 12px;
+            padding: 10px;
+            background: white;
+            border-radius: 6px;
+            border-left: 3px solid #48bb78; /* Green accent for money/funding */
         }
     </style>
 </head>
 <body>
+
     <div class="navigation">
         <a href="#about">About Us</a>
         <a href="#research">Research</a>
@@ -170,37 +236,63 @@
 
         <section id="about">
             <h2>About Us</h2>
-            <p>Quantum computing harnesses many unique properties of quantum mechanics, such as quantum entanglement and superposition, offering distinct capabilities that exceed those of conventional computing apparatus. Our overarching objective is to devise efficient quantum algorithms tailored to address scientific computational issues, particularly those that present formidable challenges to classical computers.</p>
+            <p>Quantum computing harnesses unique properties of quantum mechanics, such as entanglement and superposition, to offer capabilities exceeding conventional supercomputers. Our overarching objective is to devise rigorous, efficient quantum algorithms tailored for scientific computing, addressing problems that remain intractable for classical methods.</p>
         </section>
 
         <section id="research">
             <h2>Our Research</h2>
             <div class="columns">
-                <div>
+                <div class="research-card">
                     <h3>Hamiltonian Simulations</h3>
                     <img src="Schrodinger-multiscale-quantum.jpg" alt="Solving multiscale Schrôdinger equation using quantum algorithms">
-                    <p>Hamiltonian simulation algorithms involve constructing a quantum circuit that performs the unitary transformation U associated with a Hamiltonian operator H. They are important building blocks for many other quantum computing algorithms.</p>
+                    <p>We develop efficient quantum circuits to implement the unitary evolution <em>U = e<sup>-iHt</sup></em>. These algorithms serve as the fundamental building blocks for simulating quantum dynamics and solving ground state problems in chemistry and physics.</p>
+                </div>
 
+                <div class="research-card">
                     <h3>Open Quantum Systems</h3>
                     <img src="Open-Quantum-Circuit.jpg" alt="Embedding an open quantum system into unitary dynamics">
-                    <p>In practice, quantum systems are inevitably subject to environmental noise. We design both quantum and classical algorithms to effectively simulate the behavior of these open quantum systems.</p>
+                    <p>Real-world quantum devices are inherently noisy. We design algorithms to simulate Lindblad master equations and non-Markovian dynamics, bridging the gap between ideal theoretical models and current NISQ hardware.</p>
                 </div>
-                <div>
+
+                <div class="research-card">
                     <h3>Applications to Material Science</h3>
                     <img src="dft-diag3.jpg" alt="Flowchart for solving DFT models using quantum algorithms">
-                    <p>First-principle calculations in material science eliminate the need for empirical assumptions and possess the potential to predict material properties with quantum-level precision.</p>
+                    <p>We apply quantum algorithms to Density Functional Theory (DFT) and electronic structure problems. Our goal is to enable first-principle calculations that predict material properties with precision surpassing classical approximations.</p>
+                </div>
 
+                <div class="research-card">
                     <h3>Quantum Algorithms for PDEs</h3>
                     <img src="Absorbing-BC-schrodingerisation.jpg" alt="Quantum simulation for partial differential equations">
-                    <p>We create quantum algorithms specifically designed to solve partial differential equations, particularly in situations where the numerical discretization results in a high degree of freedom.</p>
+                    <p>We create quantum solvers specifically designed for high-dimensional Partial Differential Equations (PDEs). Our work utilizes techniques like Schrödingerisation to map classical fluid and wave dynamics onto quantum processors.</p>
                 </div>
-                <div> 
-                      <h3>Learning Open Quantum Systems</h3>
-                    <img src="quantum-learning-Lindblad.jpg" alt="Learning algorithm for open quantum systems">
-                    <p>Using measurement data, these learning algorithms are designed to infer the interactions in a quantum system, which can then be leveraged to control quantum dynamics or implement quantum algorithms.</p>
-                    <h3>Quantum Algorithms for Statistical Sampling</h3>
-                    <p>Quantum algorithms speed up Markov Chain Monte Carlo by leveraging quantum walks to reduce mixing time, using quantum amplitude amplification to improve sampling efficiency, and exploiting quantum search techniques to accelerate convergence.</p>
 
+                <div class="research-card">
+                    <h3>Learning Open Quantum Systems</h3>
+                    <img src="quantum-learning-Lindblad.jpg" alt="Learning algorithm for open quantum systems">
+                    <p>We construct Quantum System Identification methods. Using measurement data, these algorithms infer Hamiltonian interactions and dissipative parameters, enabling better calibration and control of quantum devices.</p>
+                </div>
+
+                <div class="research-card">
+                    <h3>Quantum Statistical Sampling</h3>
+                    <p>We leverage quantum walks and amplitude amplification to accelerate Markov Chain Monte Carlo (MCMC) methods. Our algorithms aim to reduce mixing times and improve sampling efficiency for complex optimization landscapes.</p>
+                </div>
+
+                <div class="research-card">
+                    <h3>Quantum Error Mitigation</h3>
+                    <img src="qem.jpg" alt="Quantum Error Mitigation Strategies">
+                    <p>To address hardware noise, we develop rigorous mathematical frameworks for error mitigation. This includes Non-Markovian Quantum Error Mitigation (QEM) and the theoretical analysis of Zero-Noise Extrapolation (ZNE) using polynomial extrapolation methods.</p>
+                </div>
+
+                <div class="research-card">
+                    <h3>Quantum Machine Learning</h3>
+                    <img src="qml.jpg" alt="Quantum Machine Learning Architectures">
+                    <p>Our work focuses on the convergence of hybrid quantum-classical algorithms. We proposed the random coordinate descent method, analyzed hybrid convergence, and developed Hamiltonian diagonalization algorithms for fast-forwarding dynamics.</p>
+                </div>
+
+                <div class="research-card">
+                    <h3>Quantum Stochastic Simulations</h3>
+                    <img src="sde.jpg" alt="Stochastic Differential Equations on Quantum Circuits">
+                    <p>We have developed unitary dilation frameworks for simulating Linear Stochastic Differential Equations (SDEs). These methods allow for the rigorous propagation of 2nd-order statistics and the simulation of diffusive dynamics directly on quantum circuits.</p>
                 </div>
             </div>
         </section>
@@ -211,116 +303,54 @@
             <h3>ICDS: "Machine-Learning with Quantum Speedup", $30,000, 2023</h3>
             <h3>NSF: "An Integrated Framework for Optimal Control for Open Quantum Systems", $600,000, 2023--2026</h3>
             <h3>NSF: "Improving quantum speedup for solving differential equations", $300,000, 2024--2027</h3>
-			<h3> ICDS superseed grant: Open Quantum Systems Beyond Markovianity: Building a Cross-Disciplinary Community for Quantum Simulation and Computing, $199,440.  </h3>
+            <h3>ICDS Superseed Grant: "Open Quantum Systems Beyond Markovianity: Building a Cross-Disciplinary Community", $199,440.</h3>
         </section>
 
         <section id="publications">
-            <h2>Publications</h2>
+            <h2>Selected Publications</h2>
             <ol reversed class="publications-list">
-				<li><font face="Arial, Helvetica, sans-serif", size=+1>
-    <strong>Hsuan-Cheng Wu and  Xiantao Li, Universal Dilation of Linear Itô SDEs: Quantum Trajectories and
-Lindblad Simulation of Second Moments,
-  </strong> <em> preprint, 2026. </em></font> </li>
-				<li><font face="Arial, Helvetica, sans-serif", size=+1>
-    <strong>  Xiantao Li and Chunhao Wang, <a href="https://arxiv.org/abs/2509.19887">  Quantum Regression Theory and Efficient Computation of Response
-  Functions for Non-Markovian Open Systems </a>
-  </strong> <em> preprint, 2025. </em></font> </li>
-				 <li><font face="Arial, Helvetica, sans-serif", size=+1>
-    <strong> Yu Cao, Mingfeng He, Xiantao Li, <a href="https://arxiv.org/abs/2509.19887"> Dynamically Optimal Unraveling Schemes for Simulating Lindblad Equations </a>
-  </strong> <em> preprint, 2025. </em></font> </li>
-				 <li><font face="Arial, Helvetica, sans-serif", size=+1>
-    <strong> Pinchen Xie, Ke Wang, Anupam Mitra, Yuanran Zhu, Xiantao Li, Wibe Albert de Jong, Chao Yang, <a href="https://arxiv.org/abs/2508.17170"> Predict open quantum dynamics with data-informed quantum-classical dynamics</a>
-  </strong> <em> Physical Review Letters, Vol 136, 010402, 2026. </em></font> </li>
-	  <br><br><br>
-<li><font face="Arial, Helvetica, sans-serif">
-    <strong> Pegah Mohammadipour and Xiantao Li, <a href="http://arxiv.org/abs/2507.22341"> Reducing Circuit Depth in Lindblad Simulation via Step-Size
-  Extrapolation,</a>
-  </strong></font> <em> Physical Review A, 2025. </em> </li>
-  <li><font face="Arial, Helvetica, sans-serif">
-    <strong> Xiantao Li, <a href="https://scirate.com/arxiv/2506.17883"> From Linear Differential Equations to Unitaries: A Moment-Matching
-  Dilation Framework with Near-Optimal Quantum Algorithms,</a>
-  </strong></font> <em> preprint, 2025. </em> </li>
-		     <li><font face="Arial, Helvetica, sans-serif">
-    <strong> Taehee Ko, Sangkook Choi, Hyowon Park, Xiantao Li, <a href="https://scirate.com/arxiv/2506.17883"> Classical optimization algorithms for diagonalizing quantum Hamiltonians,</a>
-  </strong></font> <em> Physica Scripta, 2025. </em> </li>
-              <li><font face="Arial, Helvetica, sans-serif">
-    <strong> Xiantao Li, <a href="https://arxiv.org/abs/2504.05453"> Exponential Quantum Speedup for Simulating Classical Lattice Dynamics,</a>
-  </strong></font> <em> Physical Review Letters, Accepted, 2025. </em> </li>
-<br><br><br>
-
-	  
-<li><font face="Arial, Helvetica, sans-serif">
-    <strong>Guneykan Ozgul, Xiantao Li, Mehrdad Mahdavi, Chunhao Wang, <a href="https://arxiv.org/abs/2504.03626"> Quantum Speedups for Markov Chain Monte Carlo Methods with Application to Optimization,</a>
-  </strong></font> <em> preprint, 2025. </em> </li>
-<br><br><br>
-              <li>
-    <strong>Pegah Mohammadipour and  Xiantao Li, <a href="https://arxiv.org/abs/2502.20673"> Direct Analysis of Zero-Noise Extrapolation: Polynomial Methods, Error Bounds, and Simultaneous Physical-Algorithmic Error Mitigation,</a>
-  </strong <em>  Quantum, 9, 1909, 2025. </em>
-              </li>
                 <li>
-    <strong>Ke Wang and  Xiantao Li, <a href="https://arxiv.org/abs/2501.05019"> Non-Markovian Noise Mitigation: Practical Implementation, Error Analysis, and the Role of Environment Spectral Properties,</a>
-  </strong> <em> preprint, 2025. </em>
+                    <strong>Hsuan-Cheng Wu and Xiantao Li, Universal Dilation of Linear Itô SDEs: Quantum Trajectories and Lindblad Simulation of Second Moments,</strong> <em>preprint, 2026.</em>
                 </li>
- 
                 <li>
-                    <strong> Zhenning Liu, Xiantao Li, Chunhao Wang, and Jin-Peng Liu <a href="https://arxiv.org/abs/2411.03972">Toward end-to-end quantum simulation for protein dynamics,</a>
-         </strong> <em> preprint, 2024. </em>
-            </li>
-<li>
-    <strong>Hsuan-Cheng Wu and  Xiantao Li,  <a href="https://arxiv.org/abs/2411.03599">Structure-preserving quantum algorithms for linear and nonlinear Hamiltonian systems,</a>
-             </strong> <em> preprint, 2024. </em>
-</li>
-            <li>
-                <strong>Hsuan-Cheng Wu, Jiayao Wang and  Xiantao Li, <a href="http://arxiv.org/abs/2405.12714">Quantum Algorithms for Nonlinear Dynamics: Revisiting Carleman
-  Linearization with No Dissipative Conditions,</a>
-  </strong> <em>  SIAM Journal on Scientific Computing, 2025. </em>
-            </li>  
-           <li>
-               <strong>Wenhao He, Tongyang Li,  Xiantao Li  Zecheng Li, Chunhao Wang and Ke Wang, <a href="https://arxiv.org/abs/2311.15533">Efficient Optimal Control of Open Quantum Systems,</a>
-  </strong> <em> TQC, 2024. </em>
-           </li>  
-        <li>
-            <strong>Zhiyan Ding, Xiantao Li and Lin Lin, <a href="https://doi.org/10.1103/PRXQuantum.5.020332">Simulating Open Quantum Systems Using Hamiltonian Simulations,</a></strong> <em> PRX Quantum, 5, 020332, 2024.</em>
-        </li>
-        <li>
-            <strong>Zhiyan Ding, Taehee Ko, Jiahao Yao, Lin Lin, and Xiantao Li, <a href="https://arxiv.org/abs/2311.00088">Random coordinate descent: a simple alternative for optimizing parameterized quantum circuits,</a></strong> <em>Physical Review Research, 2024.</em>
-        </li>
-        <li>
-            <strong>Guneykan Ozgul, Xiantao Li, Mehrdad Mahdavi, Chunhao Wang, <a href="https://arxiv.org/abs/2310.11445">Stochastic Quantum Sampling for Non-Logconcave Distributions and Estimating Partition Functions,</a></strong> <em>ICML, 2024.</em>
-        </li>
-        <li>
-            <strong>With Taehee Ko and Chunhao Wang, <a href="http://arxiv.org/abs/2307.03858">Implementation of the Density-functional Theory on Quantum Computers with Linear Scaling with respect to the Number of Atoms,</a></strong> <em>QEC. 2024</em>
-        </li>
-        <li>
-            <strong>With Ke Wang, <a href="http://arxiv.org/abs/2307.03858">Simulation-assisted learning of open quantum systems,</a></strong> <em>Quantum, 2024.</em>
-        </li>
-        <li>
-            <strong>With Jin, Liu, Yu, <a href="https://doi.org/10.1016/j.jcp.2023.112707">Quantum Simulation for Partial Differential Equations with Physical Boundary or Interface Conditions.,</a></strong> <em>Journal of Computational Physics, Vol 498, 112707, 2024.</em>
-        </li>
-        <li>
-            <strong>With Jin, Liu, Yu, <a href="https://arxiv.org/abs/2304.00667v1">Quantum Simulation for Quantum Dynamics with Artificial Boundary Condition,</a></strong> <em>SIAM Journal on Scientific Computing, 2024.</em>
-        </li>
-        <li>
-            <strong>With C. Wang, <a href="http://proceedings.mlr.press/v202/li23ab/li23ab.pdf">Efficient Quantum Algorithms for Quantum Optimal Control,</a></strong> <em>Proceedings of the 40th International Conference on Machine Learning (ICML), 2023.</em>
-        </li>
-        <li>
-            <strong>With C. Wang, <a href="https://drops.dagstuhl.de/opus/volltexte/2023/18139/pdf/LIPIcs-ICALP-2023-87.pdf">Efficient Simulating Markovian open quantum systems using higher-order series expansion,</a></strong> <em>50th International Colloquium on Automata, Languages, and Programming (ICALP), 2023.</em>
-        </li>
-        <li>
-            <strong><a href="https://arxiv.org/abs/2210.14088">Enabling Quantum Speedup of Markov Chains using a Multi-level Approach,</a></strong> <em>Preprint, 2022.</em>
-        </li>
-        <li>
-            <strong>With S. Jin and Nana Liu, <a href="https://arxiv.org/abs/2112.13279">Hamiltonian Simulation in the semi-classical regime</a></strong> <em>Quantum, Vol 6, pp 739, 2022.</em>
-        </li>
-        <li>
-            <strong>X Li, <a href="https://iopscience.iop.org/article/10.1088/1751-8121/ac7f6c/meta">Some Error Analysis for the Quantum Phase Estimation Algorithms</a></strong> <em>Journal of Physics A: Mathematical and Theoretical, 2022.</em>
-        </li>
-        <li>
-            <strong>With Chunhao Wang, <a href="https://doi.org/10.1007/s00220-023-04638-4">Succinct Description and Efficient Simulation of Non-Markovian Open Quantum Systems</a></strong> <em>Communications in Mathematical Physics, Vol 401, pages 147–183, 2023.</em>
-        </li>
-        <li>
-            <strong>With Shi Jin, <a href="https://doi.org/10.1007/s42967-023-00336-z">A Partially Random Trotter Algorithm for Quantum Hamiltonian Simulations,</a></strong> <em>Communications on Applied Mathematics and Computation, 2023.</em>
-        </li>
+                    <strong>Xiantao Li and Chunhao Wang, <a href="https://arxiv.org/abs/2509.19887">Quantum Regression Theory and Efficient Computation of Response Functions for Non-Markovian Open Systems</a>,</strong> <em>preprint, 2025.</em>
+                </li>
+                <li>
+                    <strong>Yu Cao, Mingfeng He, Xiantao Li, <a href="https://arxiv.org/abs/2509.19887">Dynamically Optimal Unraveling Schemes for Simulating Lindblad Equations</a>,</strong> <em>preprint, 2025.</em>
+                </li>
+                <li>
+                    <strong>Pinchen Xie, Ke Wang, Anupam Mitra, Yuanran Zhu, Xiantao Li, Wibe Albert de Jong, Chao Yang, <a href="https://arxiv.org/abs/2508.17170">Predict open quantum dynamics with data-informed quantum-classical dynamics</a>,</strong> <em>Physical Review Letters, Vol 136, 010402, 2026.</em>
+                </li>
+                <li>
+                    <strong>Pegah Mohammadipour and Xiantao Li, <a href="http://arxiv.org/abs/2507.22341">Reducing Circuit Depth in Lindblad Simulation via Step-Size Extrapolation,</a></strong> <em>Physical Review A, 2025.</em>
+                </li>
+                <li>
+                    <strong>Xiantao Li, <a href="https://scirate.com/arxiv/2506.17883">From Linear Differential Equations to Unitaries: A Moment-Matching Dilation Framework with Near-Optimal Quantum Algorithms,</a></strong> <em>preprint, 2025.</em>
+                </li>
+                <li>
+                    <strong>Taehee Ko, Sangkook Choi, Hyowon Park, Xiantao Li, <a href="https://scirate.com/arxiv/2506.17883">Classical optimization algorithms for diagonalizing quantum Hamiltonians,</a></strong> <em>Physica Scripta, 2025.</em>
+                </li>
+                <li>
+                    <strong>Xiantao Li, <a href="https://arxiv.org/abs/2504.05453">Exponential Quantum Speedup for Simulating Classical Lattice Dynamics,</a></strong> <em>Physical Review Letters, Accepted, 2025.</em>
+                </li>
+                <li>
+                    <strong>Guneykan Ozgul, Xiantao Li, Mehrdad Mahdavi, Chunhao Wang, <a href="https://arxiv.org/abs/2504.03626">Quantum Speedups for Markov Chain Monte Carlo Methods with Application to Optimization,</a></strong> <em>preprint, 2025.</em>
+                </li>
+                <li>
+                    <strong>Pegah Mohammadipour and Xiantao Li, <a href="https://arxiv.org/abs/2502.20673">Direct Analysis of Zero-Noise Extrapolation: Polynomial Methods, Error Bounds, and Simultaneous Physical-Algorithmic Error Mitigation,</a></strong> <em>Quantum, 9, 1909, 2025.</em>
+                </li>
+                <li>
+                    <strong>Ke Wang and Xiantao Li, <a href="https://arxiv.org/abs/2501.05019">Non-Markovian Noise Mitigation: Practical Implementation, Error Analysis, and the Role of Environment Spectral Properties,</a></strong> <em>preprint, 2025.</em>
+                </li>
+                <li>
+                    <strong>Zhenning Liu, Xiantao Li, Chunhao Wang, and Jin-Peng Liu, <a href="https://arxiv.org/abs/2411.03972">Toward end-to-end quantum simulation for protein dynamics,</a></strong> <em>preprint, 2024.</em>
+                </li>
+                <li>
+                    <strong>Hsuan-Cheng Wu and Xiantao Li, <a href="https://arxiv.org/abs/2411.03599">Structure-preserving quantum algorithms for linear and nonlinear Hamiltonian systems,</a></strong> <em>preprint, 2024.</em>
+                </li>
+                <li>
+                    <strong>Hsuan-Cheng Wu, Jiayao Wang and Xiantao Li, <a href="http://arxiv.org/abs/2405.12714">Quantum Algorithms for Nonlinear Dynamics: Revisiting Carleman Linearization with No Dissipative Conditions,</a></strong> <em>SIAM Journal on Scientific Computing, 2025.</em>
+                </li>
             </ol>
         </section>
 
@@ -363,7 +393,7 @@ Lindblad Simulation of Second Moments,
         </section>
 
         <footer>
-            <p>Contact: Xiantao.Li AT PSU DOT EDU</p>
+            <p>Contact: Xiantao.Li [AT] PSU [DOT] EDU</p>
         </footer>
     </div>
 </body>
