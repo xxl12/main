@@ -183,57 +183,269 @@
             </section>
         </div>
 
-        <div class="content-container">
-            <section class="events-section">
-                <h2>Recent Talks & Events</h2>
-                <p><em>Selected lectures on Quantum Algorithms and Scientific Computing:</em></p>
-                
-                <dl>
-                     <dt>IPAM Workshop: New Frontiers in Quantum Algorithms</dt>
-                     <dd>
-                        <span class="quantum-tag">Quantum Algorithms</span> <a href="https://www.youtube.com/watch?v=OLEhoqmDBw0">A general dilation framework for non-Hermitian dynamics >[Watch Video]</a>
-                     </dd>
+        <style>
+  /* Modern CSS for the Talks & Events Section */
+  .events-section {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    max-width: 850px;
+    margin: 0 auto;
+    color: #333;
+    line-height: 1.6;
+  }
+  .events-section h2 {
+    border-bottom: 2px solid #0056b3;
+    padding-bottom: 10px;
+    margin-bottom: 5px;
+    color: #1a1a1a;
+  }
+  .events-subtitle {
+    margin-bottom: 25px;
+    color: #555;
+    font-style: italic;
+  }
+  .talk-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .talk-item {
+    background: #fdfdfd;
+    border-left: 4px solid #0056b3;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    margin-bottom: 15px;
+    padding: 16px 20px;
+    border-radius: 0 6px 6px 0;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .talk-item:hover {
+    transform: translateX(4px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+  .talk-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 6px;
+  }
+  .talk-event {
+    font-weight: 700;
+    color: #0056b3;
+    font-size: 1.05em;
+  }
+  .talk-date {
+    font-size: 0.9em;
+    color: #777;
+    font-weight: 500;
+  }
+  .talk-title {
+    font-size: 1.1em;
+    font-weight: 500;
+    margin: 0 0 12px 0;
+    color: #222;
+  }
+  .talk-meta {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .quantum-tag {
+    background: #e9ecef;
+    color: #495057;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.8em;
+    font-weight: 600;
+  }
+  .talk-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: #fff0f0;
+    color: #d9534f;
+    padding: 4px 10px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.85em;
+    font-weight: 600;
+    border: 1px solid #f5c6c6;
+    transition: background 0.2s;
+  }
+  .talk-link:hover {
+    background: #ffe3e3;
+    text-decoration: none;
+  }
+  .talk-link.pdf-link {
+    background: #f0f7ff;
+    color: #0275d8;
+    border-color: #b8daff;
+  }
+  .talk-link.pdf-link:hover {
+    background: #e1efff;
+  }
+</style>
 
+<div class="content-container">
+    <section class="events-section">
+        <h2>Recent Talks & Events</h2>
+        <p class="events-subtitle">Selected lectures on Quantum Algorithms and Scientific Computing</p>
+        
+        <ul class="talk-list">
+            <li class="talk-item">
+                <div class="talk-header">
+                    <span class="talk-event">SIAM Conference on Dynamical Systems</span>
+                    <span class="talk-date">May 2025</span>
+                </div>
+                <h3 class="talk-title">Quantum advantage in simulating non-resonant nonlinear systems</h3>
+            </li>
 
-                    
-                     <dt>Ashtekar Frontiers of Science Lecture (Feb 2025)</dt>
-                     <dd>
-                        <span class="quantum-tag">Public Lecture on <strong> Quantum Algorithms for Scientific Computing </strong></span> <a href="https://www.youtube.com/watch?v=-fjqNkYOQKY">What can quantum computing do for scientific computing? >[Watch Video]</a>
-                     </dd>
+            <li class="talk-item">
+                <div class="talk-header">
+                    <span class="talk-event">NSF PI Meeting</span>
+                    <span class="talk-date">May 2025</span>
+                </div>
+                <h3 class="talk-title">Presentation on funded Quantum Algorithm research</h3>
+            </li>
 
-                     <dt>SIAM NNP Conference 2025</dt>
-                     <dd><strong> Quantum Algorithm for PDEs </strong> <a href="./quantumPDE.pdf"> Power point slides </a> </dd>
-                     
+            <li class="talk-item">
+                <div class="talk-header">
+                    <span class="talk-event">SIAM CSE 2025</span>
+                    <span class="talk-date">March 2025</span>
+                </div>
+                <h3 class="talk-title">Optimal control of Open Quantum Systems</h3>
+            </li>
 
-                    
-                     <dt>ICDS Symposium 2025</dt>
-                     <dd>Making Classical Problems Quantum</dd>
-                     
-                     <dt>SIAM Conference on Dynamical Systems (May 2025)</dt>
-                     <dd>Quantum advantage in simulating non-resonant nonlinear systems</dd>
-                     
-                     <dt>NSF PI Meeting (May 2025)</dt>
-                     <dd>Presentation on funded Quantum Algorithm research</dd>
+            <li class="talk-item">
+                <div class="talk-header">
+                    <span class="talk-event">Ashtekar Frontiers of Science Lecture</span>
+                    <span class="talk-date">Feb 2025</span>
+                </div>
+                <h3 class="talk-title">What can quantum computing do for scientific computing?</h3>
+                <div class="talk-meta">
+                    <span class="quantum-tag">Public Lecture</span>
+                    <a href="https://www.youtube.com/watch?v=-fjqNkYOQKY" class="talk-link" target="_blank">▶ Watch Video</a>
+                </div>
+            </li>
 
-                     <dt>SIAM CSE 2025 (March 2025)</dt>
-                     <dd>Optimal control of Open Quantum Systems</dd>
-                     
-                     <dt>Simons Institute Workshop (Oct 2024)</dt>
-                     <dd>
-                        <span class="quantum-tag">Simons Talk</span> <a href="https://simons.berkeley.edu/talks/xiantao-li-penn-state-2024-10-22">Quantum Simulation Algorithms for Lindblad Dynamics</a> (Video)
-                     </dd>
+            <li class="talk-item">
+                <div class="talk-header">
+                    <span class="talk-event">IPAM Workshop: New Frontiers in Quantum Algorithms</span>
+                    <span class="talk-date">2025</span>
+                </div>
+                <h3 class="talk-title">A general dilation framework for non-Hermitian dynamics</h3>
+                <div class="talk-meta">
+                    <span class="quantum-tag">Quantum Algorithms</span>
+                    <a href="https://www.youtube.com/watch?v=OLEhoqmDBw0" class="talk-link" target="_blank">▶ Watch Video</a>
+                </div>
+            </li>
 
-                     <dt>QSIM 2024 (Aug 2024)</dt>
-                     <dd>Efficient Optimal Control of Open Quantum Systems <a href="https://www.youtube.com/watch?v=OEs2pxV23XM">[Watch Video]</a></dd>
+            <li class="talk-item">
+                <div class="talk-header">
+                    <span class="talk-event">SIAM NNP Conference 2025</span>
+                    <span class="talk-date">2025</span>
+                </div>
+                <h3 class="talk-title">Quantum Algorithm for PDEs</h3>
+                <div class="talk-meta">
+                    <a href="./quantumPDE.pdf" class="talk-link pdf-link" target="_blank">📄 Presentation Slides</a>
+                </div>
+            </li>
 
-                     <dt>APS March Meeting 2024</dt>
-                     <dd>Quantum Algorithms for DFT</dd>
-                     
-                     <dt>ICML 2023</dt>
-                     <dd>Efficient Quantum Algorithms for Quantum Optimal Control (<a href="http://proceedings.mlr.press/v202/li23ab/li23ab.pdf">PDF</a>)</dd>
-                </dl>
-            </section>
-        </div>
+            <li class="talk-item">
+                <div class="talk-header">
+                    <span class="talk-event">ICDS Symposium 2025</span>
+                    <span class="talk-date">2025</span>
+                </div>
+                <h3 class="talk-title">Making Classical Problems Quantum</h3>
+            </li>
+
+            <li class="talk-item">
+                <div class="talk-header">
+                    <span class="talk-event">Simons Institute Workshop</span>
+                    <span class="talk-date">Oct 2024</span>
+                </div>
+                <h3 class="talk-title">Quantum Simulation Algorithms for Lindblad Dynamics</h3>
+                <div class="talk-meta">
+                    <span class="quantum-tag">Simons Talk</span>
+                    <a href="https://simons.berkeley.edu/talks/xiantao-li-penn-state-2024-10-22" class="talk-link" target="_blank">▶ Watch Video</a>
+                </div>
+            </li>
+
+            <li class="talk-item">
+                <div class="talk-header">
+                    <span class="talk-event">QSIM 2024</span>
+                    <span class="talk-date">Aug 2024</span>
+                </div>
+                <h3 class="talk-title">Efficient Optimal Control of Open Quantum Systems</h3>
+                <div class="talk-meta">
+                    <a href="https://www.youtube.com/watch?v=OEs2pxV23XM" class="talk-link" target="_blank">▶ Watch Video</a>
+                </div>
+            </li>
+
+            <li class="talk-item">
+                <div class="talk-header">
+                    <span class="talk-event">APS March Meeting</span>
+                    <span class="talk-date">March 2024</span>
+                </div>
+                <h3 class="talk-title">Quantum Algorithms for DFT</h3>
+            </li>
+
+            <li class="talk-item">
+                <div class="talk-header">
+                    <span class="talk-event">QuCS Lecture 52</span>
+                    <span class="talk-date">Dec 2023</span>
+                </div>
+                <h3 class="talk-title">Open Quantum Systems in Quantum Computing</h3>
+                <div class="talk-meta">
+                    <a href="https://www.youtube.com/watch?v=c6EOJY6iCWs" class="talk-link" target="_blank">▶ Watch Video</a>
+                </div>
+            </li>
+
+            <li class="talk-item">
+                <div class="talk-header">
+                    <span class="talk-event">NA G-ROMs Seminar</span>
+                    <span class="talk-date">Oct 2023</span>
+                </div>
+                <h3 class="talk-title">Reduced Order Modeling Techniques in Computational Chemistry</h3>
+                <div class="talk-meta">
+                    <a href="https://www.youtube.com/watch?v=15UsLUPuQho" class="talk-link" target="_blank">▶ Watch Video</a>
+                </div>
+            </li>
+
+            <li class="talk-item">
+                <div class="talk-header">
+                    <span class="talk-event">IPAM at UCLA</span>
+                    <span class="talk-date">Oct 2023</span>
+                </div>
+                <h3 class="talk-title">Open Quantum Systems in Quantum Computing</h3>
+                <div class="talk-meta">
+                    <a href="https://www.youtube.com/watch?v=OaGdZX_VLRI" class="talk-link" target="_blank">▶ Watch Video</a>
+                </div>
+            </li>
+
+            <li class="talk-item">
+                <div class="talk-header">
+                    <span class="talk-event">ICML 2023</span>
+                    <span class="talk-date">July 2023</span>
+                </div>
+                <h3 class="talk-title">Efficient Quantum Algorithms for Quantum Optimal Control</h3>
+                <div class="talk-meta">
+                    <a href="http://proceedings.mlr.press/v202/li23ab/li23ab.pdf" class="talk-link pdf-link" target="_blank">📄 Read Paper</a>
+                </div>
+            </li>
+
+            <li class="talk-item">
+                <div class="talk-header">
+                    <span class="talk-event">IPAM at UCLA</span>
+                    <span class="talk-date">April 2023</span>
+                </div>
+                <h3 class="talk-title">A Stochastic Algorithm for Self-Consistent Calculations in DFT</h3>
+                <div class="talk-meta">
+                    <a href="https://www.youtube.com/watch?v=HTjNcNgoIkU" class="talk-link" target="_blank">▶ Watch Video</a>
+                </div>
+            </li>
+        </ul>
+    </section>
+</div>
     </main>
 </body>
 </html>
