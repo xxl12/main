@@ -58,6 +58,73 @@
             min-width: 300px;
         }
 
+        /* Compact book announcements in the profile column */
+        .books-panel {
+            margin-top: 2rem;
+        }
+
+        .books-panel h3 {
+            margin: 0 0 0.8rem 0;
+            color: #003366;
+            font-size: 1.15rem;
+        }
+
+        .book-card {
+            display: block;
+            margin-bottom: 0.85rem;
+            padding: 0.9rem 1rem;
+            color: #2c3e50;
+            background: rgba(255,255,255,0.72);
+            border: 1px solid #c8d6e5;
+            border-left: 4px solid #0056b3;
+            border-radius: 0 6px 6px 0;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+            transition: transform 0.2s ease, box-shadow 0.2s ease,
+                        border-color 0.2s ease;
+        }
+
+        .book-card:hover {
+            color: #2c3e50;
+            text-decoration: none;
+            transform: translateY(-2px);
+            border-left-color: #b30000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.10);
+        }
+
+        .book-topic {
+            display: block;
+            color: #0056b3;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        .book-title {
+            display: block;
+            margin: 0.2rem 0 0.25rem 0;
+            color: #1a1a1a;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 1rem;
+            font-weight: 700;
+            line-height: 1.35;
+        }
+
+        .book-note {
+            display: block;
+            color: #555;
+            font-size: 0.84rem;
+            line-height: 1.45;
+        }
+
+        .book-link-text {
+            display: inline-block;
+            margin-top: 0.45rem;
+            color: #b30000;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
         h1 {
             font-size: 2.2rem;
             margin-bottom: 0.5rem;
@@ -251,6 +318,28 @@
                     </address>
                     <p>Email: XIANTAO.LI [AT] PSU.EDU</p>
                 </div>
+
+                <aside class="books-panel" aria-labelledby="open-books-heading">
+                    <h3 id="open-books-heading">Open-Access Books</h3>
+
+                    <a class="book-card"
+                       href="https://xxl12.github.io/from_math_to_ml/"
+                       target="_blank" rel="noopener noreferrer">
+                        <span class="book-topic">Mathematics &amp; Machine Learning</span>
+                        <span class="book-title">Mathematical Pathways to Machine Learning</span>
+                        <span class="book-note">Calculus, linear algebra, and optimization, with worked examples and NumPy exercises.</span>
+                        <span class="book-link-text">Read the book &rarr;</span>
+                    </a>
+
+                    <a class="book-card"
+                       href="https://quantumpde.org/"
+                       target="_blank" rel="noopener noreferrer">
+                        <span class="book-topic">Quantum Algorithms</span>
+                        <span class="book-title">A Quantum Path to Partial Differential Equations</span>
+                        <span class="book-note">An introductory route from PDEs and numerical methods to quantum algorithms.</span>
+                        <span class="book-link-text">Explore the book &rarr;</span>
+                    </a>
+                </aside>
             </section>
 
             <section class="profile-details">
